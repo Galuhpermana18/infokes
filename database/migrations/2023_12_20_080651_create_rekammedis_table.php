@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('rekammedis', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('tanggalperiksa');
+            $table->string('pasien_id');
+            $table->string('keluhan');          
+            $table->string('dokter_id');          
+            $table->string('diagnosa');          
+            $table->string('obat_id');          
             $table->timestamps();
         });
     }
