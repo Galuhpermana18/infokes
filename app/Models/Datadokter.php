@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datadokter extends Model
 {
-    use HasFactory;
+    protected $table = 'datadokters';
+    protected $guarded = ['id'];
+    public function getFotoDokterAttribute(){
+        return $this->foto == null?'':asset('foto_dokter/'.$this->foto);
+    }
 }

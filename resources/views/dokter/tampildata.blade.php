@@ -4,7 +4,7 @@
 <div class="card text-left">
     <div class="card-body">
         <h4 class="card-title">Data Dokter</h4>
-        <a href="" class="btn btn-primary">[+] Tambah Dokter</a>
+        <a href="{{ route('dokter.tambah') }}" class="btn btn-primary">[+] Tambah Dokter</a>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -23,6 +23,12 @@
                     @forelse ($dokter as $dokter)
                     <tr>
                         <td scope="row">{{ $loop->iteration}}</td>
+                        <td><img src="{{ $dokter->foto_dokter }}" style="width: 12em" alt=""></td>
+                        <td>{{ $dokter->namadokter }}</td>
+                        <td>{{ $dokter->jenis_kelamin }}</td>
+                        <td>{{ $dokter->spesialis }}</td>
+                        <td>{{ $dokter->jam_mulai }}</td>
+                        <td>{{ $dokter->jam_selesai }}</td>
                         <td>
                             <a href="{{route('dokter.edit',$dokter->id)}}" class="btn btn-sm btn-warning"><i
                                     class="fas fa-pencil-alt    "></i></a>

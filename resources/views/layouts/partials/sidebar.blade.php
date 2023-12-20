@@ -39,7 +39,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data :</h6>
                 <a class="collapse-item" href="buttons.html">Pasien</a>
-                <a class="collapse-item" href="cards.html">Dokter</a>
+                <a class="collapse-item {{ (request()->is('dashboard/dokter*')) ? 'active' : '' }}" href="{{ route('dokter.index') }}">Dokter</a>
                 <a class="collapse-item {{ (request()->is('dashboard/ruangan*')) ? 'active' : '' }}" href="{{ route('ruangan.index') }}">Ruangan</a>
                 <a class="collapse-item {{ (request()->is('dashboard/obat*')) ? 'active' : '' }}" href="{{route('obat.index')}}">Obat</a>
             </div>
