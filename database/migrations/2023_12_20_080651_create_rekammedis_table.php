@@ -18,9 +18,10 @@ return new class extends Migration
             $table->timestamp('tanggalperiksa');
             $table->string('pasien_id');
             $table->string('keluhan');          
-            $table->string('dokter_id');          
-            $table->string('diagnosa');          
-            $table->string('obat_id');          
+            $table->string('dokter_id')->nullable();          
+            $table->string('diagnosa')->nullable();          
+            $table->string('obat_id')->nullable();      
+            $table->enum('status',['selesai','proses','terkonfirmasi','belum di konfirmasi'])->default('belum di konfirmasi');    
             $table->timestamps();
         });
     }

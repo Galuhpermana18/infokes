@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -74,6 +74,18 @@
 
     {{-- Untuk Sidebar Pasien --}}
     @if (auth()->user()->role == 'pasien')
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Rekaman Medis
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            {{-- <i class="fas fa-fw fa-chart-area"></i> --}}
+            <i class="fas fa-bed    "></i>
+            <span>Rekaman Medis Saya</span></a>
+    </li>
     @endif
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('namapasien');
             $table->string('no_telp_pasien');
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
-            $table->string('keluhan');
+            // $table->string('keluhan');
             $table->date('tanggal');
             $table->timestamps();
         });
