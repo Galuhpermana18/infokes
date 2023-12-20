@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             // $table->foreignId('user_id');
             $table->string('kode_obat');
-            $table->string('keluhan');//kolom ini untuk mengetahui obat ini untuk pasien dengan keluhan tersebut 
             $table->string('nama_obat');
+            $table->string('keluhan');//kolom ini untuk mengetahui obat ini untuk pasien dengan keluhan tersebut 
             $table->string('keterangan_obat');
             $table->timestamps();
         });

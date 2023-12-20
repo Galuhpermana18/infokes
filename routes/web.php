@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ObatController;
 use App\Http\Controllers\RuanganController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PasienController;
@@ -33,7 +34,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('dashboard')->group(function(){
+Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
     // Ruangan
@@ -41,6 +42,18 @@ Route::prefix('dashboard')->group(function(){
         Route::get("/",[RuanganController::class,'index'])->name('index')->middleware('checkRole:admin');
         Route::delete("/hapus/{id}",[RuanganController::class,'delete'])->name('hapus')->middleware('checkRole:admin');
         Route::get("/tambah-ruangan",[RuanganController::class,'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
+        Route::post("/simpan", [RuanganController::class,'simpan'])->name('simpan')->middleware('checkRole:admin');
+        Route::get("/edit-ruangan/{id}", [RuanganController::class, 'edit'])->name('edit')->middleware('checkRole:admin');
+        Route::put("/update-ruangan/{id}", [RuanganController::class, 'update'])->name('update')->middleware('checkRole:admin');
     });
-    
+
+    //Obat
+    Route::name('obat.')->prefix('obat')->group(function () {
+        Route::get("/", [ObatController::class, 'index'])->name('index')->middleware('checkRole:admin');
+        Route::get("/tambah-obat", [ObatController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
+        Route::post("/simpan", [ObatController::class, 'simpan'])->name('simpan')->middleware('checkRole:admin');
+        Route::get("/edit-obat/{id}", [ObatController::class, 'edit'])->name('edit')->middleware('checkRole:admin');
+        Route::put("/update-obat/{id}", [ObatController::class, 'update'])->name('update')->middleware('checkRole:admin');
+        Route::delete("/hapus/{id}", [ObatController::class, 'delete'])->name('hapus')->middleware('checkRole:admin');
+    });
 });

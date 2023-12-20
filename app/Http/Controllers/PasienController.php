@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class PasienController extends Controller
 {
-    public function dashboard()
-    {
-        return view('sb-user/dashboardpasien');
-    }
 
     public function index()
     {
@@ -42,6 +38,6 @@ class PasienController extends Controller
             // 'tanggal' => $request['tanggal'],
             'tanggal' => now(),
         ]);
-        return redirect('/datapasien')->with('status', 'Data Berhasil Ditambah');
+        // return redirect('/datapasien')->with('status', 'Data Berhasil Ditambah');
     }
 }

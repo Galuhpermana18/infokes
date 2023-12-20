@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dataobat extends Model
 {
-    use HasFactory;
+    protected $table = 'dataobats';
+    protected $guarded = ['id'];
 }
