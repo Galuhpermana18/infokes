@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PasienController;
+// use App\Http\Controllers\PasienController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ Route::prefix('dashboard')->group(function(){
         Route::get("/",function(){
             return "Halaman ruangan";
         })->name('index');
-        
+
         Route::get("buat-baru",function(){
             return "Halaman buat baru ruangan";
         })->name('index')->middleware('checkRole:admin');
