@@ -24,7 +24,7 @@ class CheckRole
         $roles = array_slice(func_get_args(), 2);
 
         foreach ($roles as $role) {
-            $pasien = Auth::pasien()->role;
+            $pasien = Auth::user()->role;
             if ($pasien == $role) {
                 return $next($request);
             }

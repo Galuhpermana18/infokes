@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RuanganController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PasienController;
 use Illuminate\Support\Facades\Auth;
@@ -36,13 +37,7 @@ Route::prefix('dashboard')->group(function(){
     Route::get('/',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
     Route::name('ruangan.')->prefix('ruangan')->group(function(){
-        Route::get("/",function(){
-            return "Halaman ruangan";
-        })->name('index');
-
-        Route::get("buat-baru",function(){
-            return "Halaman buat baru ruangan";
-        })->name('index')->middleware('checkRole:admin');
+        Route::get("/",[RuanganController::class,'index'])->name('index')->middleware('checkRole:admin');
     });
     
 });
