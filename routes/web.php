@@ -36,8 +36,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('dashboard')->group(function(){
     Route::get('/',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
+    // Ruangan
     Route::name('ruangan.')->prefix('ruangan')->group(function(){
         Route::get("/",[RuanganController::class,'index'])->name('index')->middleware('checkRole:admin');
+        Route::delete("/hapus/{id}",[RuanganController::class,'delete'])->name('hapus')->middleware('checkRole:admin');
+        Route::get("/tambah-ruangan",[RuanganController::class,'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
     });
     
 });
