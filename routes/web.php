@@ -38,6 +38,7 @@ Route::prefix('dashboard')->group(function(){
         Route::get("/",function(){
             return "Halaman ruangan";
         })->name('index');
+        
         Route::get("buat-baru",function(){
             return "Halaman buat baru ruangan";
         })->name('index')->middleware('checkRole:admin');
