@@ -71,7 +71,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     //Rekammedis
     Route::name('rekammedis.')->prefix('rekammedis')->group(function () {
         Route::get("/", [RekammedisController::class, 'index'])->name('index')->middleware('checkRole:admin');
-        Route::get("/tambah-rekammedis", [DokterController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
+        Route::get("/tambah-rekammedis", [RekammedisController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
 
     });
 
