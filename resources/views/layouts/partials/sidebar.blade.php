@@ -2,7 +2,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-fw fa-hospital"></i>
+            <i class="fas fa-hospital"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Klinkik UG<sup></sup></div>
         {{-- <p>{{ request()->route()->getName() }}</p> --}}
@@ -81,11 +81,37 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('rekammedis.index')}}">
             {{-- <i class="fas fa-fw fa-chart-area"></i> --}}
-            <i class="fas fa-bed    "></i>
+            <i class="fas fa-bed"></i>
             <span>Rekaman Medis Saya</span></a>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('dokter.index')}}">
+            {{-- <i class="fas fa-fw fa-chart-area"></i> --}}
+            {{-- <i class="fa-solid fa-person"></i> --}}
+            <i class="fas fa-user-md"></i>
+            <span>Dokter</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('obat.index')}}">
+            {{-- <i class="fas fa-fw fa-chart-area"></i> --}}
+            <i class="fas fa-tablets"></i>
+            <span>Obat</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('ruangan.index')}}">
+            {{-- <i class="fas fa-fw fa-chart-area"></i> --}}
+            <i class="fas fa-door-closed"></i>
+            <span>Ruangan</span></a>
+    </li>
+
+
+
+
     @endif
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

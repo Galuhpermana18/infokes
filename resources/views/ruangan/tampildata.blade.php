@@ -13,7 +13,9 @@
                         <th>No</th>
                         <th>Ruangan</th>
                         <th>Keterangan</th>
+                        @if (auth()->user()->role == 'admin')
                         <th>Action</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -23,11 +25,14 @@
                         <td>{{ $ruangan->ruangan }}</td>
                         <td>{{ $ruangan->keterangan_ruangan }}</td>
                         <td>
+
+                            @if (auth()->user()->role == 'admin')
                             <a href="{{route('ruangan.edit',$ruangan->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt    "></i></a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus{{ $ruangan->id }}">
                               <i class="fas fa-trash    "></i>
                             </button>
+                            @endif  
                             
                             <!-- Modal -->
                             <div class="modal fade" id="hapus{{ $ruangan->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

@@ -42,7 +42,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // Ruangan
     Route::name('ruangan.')->prefix('ruangan')->group(function () {
-        Route::get("/", [RuanganController::class, 'index'])->name('index')->middleware('checkRole:admin');
+        Route::get("/", [RuanganController::class, 'index'])->name('index')->middleware('checkRole:admin,pasien');
         Route::delete("/hapus/{id}", [RuanganController::class, 'delete'])->name('hapus')->middleware('checkRole:admin');
         Route::get("/tambah-ruangan", [RuanganController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
         Route::post("/simpan", [RuanganController::class, 'simpan'])->name('simpan')->middleware('checkRole:admin');
@@ -52,7 +52,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //Obat
     Route::name('obat.')->prefix('obat')->group(function () {
-        Route::get("/", [ObatController::class, 'index'])->name('index')->middleware('checkRole:admin');
+        Route::get("/", [ObatController::class, 'index'])->name('index')->middleware('checkRole:admin,pasien');
         Route::get("/tambah-obat", [ObatController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
         Route::post("/simpan", [ObatController::class, 'simpan'])->name('simpan')->middleware('checkRole:admin');
         Route::get("/edit-obat/{id}", [ObatController::class, 'edit'])->name('edit')->middleware('checkRole:admin');
@@ -61,7 +61,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     });
     //Dokter
     Route::name('dokter.')->prefix('dokter')->group(function () {
-        Route::get("/", [DokterController::class, 'index'])->name('index')->middleware('checkRole:admin');
+        Route::get("/", [DokterController::class, 'index'])->name('index')->middleware('checkRole:admin,pasien');
         Route::get("/tambah-dokter", [DokterController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
         Route::post("/simpan", [DokterController::class, 'simpan'])->name('simpan')->middleware('checkRole:admin');
         Route::get("/edit-dokter/{id}", [DokterController::class, 'edit'])->name('edit')->middleware('checkRole:admin');
@@ -70,9 +70,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     });
     //Rekammedis
     Route::name('rekammedis.')->prefix('rekammedis')->group(function () {
-        Route::get("/", [RekammedisController::class, 'index'])->name('index')->middleware('checkRole:admin');
+        Route::get("/", [RekammedisController::class, 'index'])->name('index')->middleware('checkRole:admin,pasien');
         Route::get("/tambah-rekammedis", [RekammedisController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
-
+        Route::post("/simpan", [RekammedisController::class, 'simpan'])->name('simpan')->middleware('checkRole:admin');
+        Route::delete("/delete/{id}", [RekammedisController::class, 'delete'])->name('delete')->middleware('checkRole:admin');
     });
 
     //pasien

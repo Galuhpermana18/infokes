@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('rekammedis', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('tanggalperiksa');
+            $table->date('tanggalperiksa');
             $table->string('pasien_id');
             $table->string('keluhan');          
             $table->string('dokter_id')->nullable();          
             $table->string('diagnosa')->nullable();          
-            $table->string('obat_id')->nullable();      
+            $table->string('obat_id')->nullable();
+            $table->string('ruangan_id')->nullable();      
             $table->enum('status',['selesai','proses','terkonfirmasi','belum di konfirmasi'])->default('belum di konfirmasi');    
             $table->timestamps();
         });

@@ -46,4 +46,7 @@ class User extends Authenticatable
     public function getFotoProfileAttribute(){
         return $this->foto == null?'https://i.pinimg.com/originals/c6/e9/ed/c6e9ed167165ca99c4d428426e256fae.png':$this->foto;
     }
+    public function pasien(){
+        return $this->hasOne(Datapasien::class,'id','user_id');
+    }
 }

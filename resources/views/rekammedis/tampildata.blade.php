@@ -4,7 +4,10 @@
 <div class="card text-left">
     <div class="card-body">
         <h4 class="card-title">Data Rekam Medis</h4>
+        @if (auth()->user()->role == 'admin')
+            
         <a href="{{ route('rekammedis.tambah') }}" class="btn btn-primary">[+] Tambah Rekam Medis</a>
+        @endif
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -13,24 +16,31 @@
                         <th>Tanggal Periksa</th>
                         <th>Nama Pasien</th>
                         <th>Keluhan</th>
+                        <th>Diagnosa</th>
                         <th>Dokter</th>
                         <th>Obat</th>
+                        <th>Ruangan</th>
+                         @if (auth()->user()->role == 'admin')
                         <th>Action</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($rekammedis as $rekammedis)
                     <tr>
                         <td scope="row">{{ $loop->iteration}}</td>
-                        <td><img src="{{ $rekammedis->tanggalperiksa }}" style="width: 8em" alt=""></td>
-                        <td>{{ $rekammedis->datapasien->pasien_id }}</td>
+                        <td>{{date($rekammedis->tanggalperiksa)}}</td>
+                        <td>{{ $rekammedis->pasien->namapasien }}</td>
                         <td>{{ $rekammedis->keluhan }}</td>
-                        <td>{{ $rekammedis->datadokter->dokter_id }}</td>
                         <td>{{ $rekammedis->diagnosa }}</td>
-                        <td>{{ $rekammedis->dataobat->obat_id }}</td>
+                        <td>{{ $rekammedis->dokter->namadokter }}</td>
+                        <td>{{ $rekammedis->obat->nama_obat }}</td>
+                        <td>{{ $rekammedis->ruangan?->ruangan }}</td>
                         <td>
-                            <a href="{{route('dokter.edit',$dokter->id)}}" class="btn btn-sm btn-warning"><i
-                                    class="fas fa-pencil-alt"></i></a>
+                            {{-- <a href="{{route('dokter.edit',$rekammedis->id)}}" class="btn btn-sm btn-warning"><i
+                                    class="fas fa-pencil-alt"></i></a> --}}
+                        @if (auth()->user()->role == "admin")
+                                        
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                 data-target="#hapus">
@@ -54,7 +64,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <form method="POST" action=""
+                                            <form method="POST" action="{{route('rekammedis.delete',$rekammedis->id)}}"
                                                 class="d-inline">
                                                 @method('DELETE')
                                                 @csrf
@@ -64,6 +74,7 @@
                                     </div>
                                 </div>
                             </div>
+                        @endif
                         </td>
                     </tr>
                     @empty

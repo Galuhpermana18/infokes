@@ -15,7 +15,9 @@
                         <th>Nama Obat</th>
                         <th>Keluhan</th>
                         <th>Keterangan Obat</th>
+                        @if (auth()->user()->role == 'admin')
                         <th>Action</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -27,11 +29,16 @@
                         <td>{{ $obat->keluhan }}</td>
                         <td>{{ $obat->keterangan_obat }}</td>
                         <td>
+
+                            @if (auth()->user()->role == 'admin')
+
                             <a href="{{route('obat.edit',$obat->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt    "></i></a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus">
                               <i class="fas fa-trash    "></i>
                             </button>
+
+                            @endif
                             
                             <!-- Modal -->
                             <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
