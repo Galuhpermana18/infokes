@@ -23,7 +23,7 @@
                     @forelse ($dokter as $dokter)
                     <tr>
                         <td scope="row">{{ $loop->iteration}}</td>
-                        <td><img src="{{ $dokter->foto_dokter }}" style="width: 12em" alt=""></td>
+                        <td><img src="{{ $dokter->foto_dokter }}" style="width: 8em" alt=""></td>
                         <td>{{ $dokter->namadokter }}</td>
                         <td>{{ $dokter->jenis_kelamin }}</td>
                         <td>{{ $dokter->spesialis }}</td>
@@ -55,7 +55,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <form method="POST" action="{{ route('dokter.hapus',$dokter->id) }}"
+                                            <form method="POST" action="{{ route('dokter.delete',$dokter->id) }}"
                                                 class="d-inline">
                                                 @method('DELETE')
                                                 @csrf

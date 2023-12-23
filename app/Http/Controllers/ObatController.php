@@ -63,7 +63,6 @@ class ObatController extends Controller
         $obat->nama_obat = $request->nama_obat;
         $obat->keluhan = $request->keluhan;
         $obat->keterangan_obat = $request->keterangan_obat;
-        // $ruangan->save();
 
 
         if ($obat->save()) {

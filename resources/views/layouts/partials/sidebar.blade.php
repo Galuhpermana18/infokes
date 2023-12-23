@@ -2,9 +2,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <i class="fas fa-fw fa-hospital"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Klinkik UG<sup></sup></div>
         {{-- <p>{{ request()->route()->getName() }}</p> --}}
     </a>
 
@@ -56,7 +56,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('rekammedis.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Rekam Medis</span></a>
     </li>
