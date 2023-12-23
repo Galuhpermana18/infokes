@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             // $table->foreignId('user_id');
             $table->string('namadokter');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('spesialis');
             $table->time('jam_mulai');

@@ -3,7 +3,7 @@
 @section('content')
 <div class="card text-left">
     <div class="card-body">
-        <h4 class="card-title">Data Dokter</h4>
+        <h4 class="card-title">Data Rekam Medis</h4>
         <a href="{{ route('rekammedis.tambah') }}" class="btn btn-primary">[+] Tambah Dokter</a>
         <div class="table-responsive">
             <table class="table">
