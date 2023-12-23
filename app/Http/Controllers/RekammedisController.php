@@ -12,7 +12,9 @@ class RekammedisController extends Controller
         $rekammedis = Rekammedis::latest()->get();
         return view('rekammedis.tampildata', compact('rekammedis'));
     }
-    public function tambah(){
-        
+
+    public function tambahbaru()
+    {
+        return view('rekammedis.buat-baru');    
     }
 }

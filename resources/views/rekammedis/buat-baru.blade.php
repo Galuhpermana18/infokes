@@ -8,11 +8,11 @@
         <form method="POST" action="">
           @csrf
             <div class="form-group my-4">
-                <label for="kode_obat">Kode Obat</label>
-                <input type="text" name="kode_obat" class="form-control" id="kode_obat" placeholder="Masukkan Kode Obat">
+                <label for="tanggalperiksa">Tanggal Periksa</label>
+                <input type="date" name="tanggalperiksa" class="form-control" id="tanggalperiksa" placeholder="Masukkan Kode Obat">
             </div>
              <div class="form-group my-4">
-                <label for="nama_obat">Nama Obat</label>
+                <label for="nama_obat">Nama Pasien</label>
                 <input type="text" name="nama_obat" class="form-control" id="nama_obat" placeholder="Masukkan Obat">
             </div>
             <div class="form-group my-4">

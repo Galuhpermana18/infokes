@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RekammedisController;
 use App\Http\Controllers\RuanganController;
 use Illuminate\Support\Facades\Route;
@@ -72,5 +73,13 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::get("/", [RekammedisController::class, 'index'])->name('index')->middleware('checkRole:admin');
         Route::get("/tambah-rekammedis", [DokterController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
 
+    });
+
+    //pasien
+    Route::name('pasien.')->prefix('pasien')->group(function () {
+        Route::get("/", [PasienController::class, 'index'])->name('index')->middleware('checkRole:admin');
+        Route::get("/tambah-pasien", [PasienController::class, 'tambahbaru'])->name('tambah')->middleware('checkRole:admin');
+        Route::post("/simpan", [PasienController::class, 'simpan'])->name('simpan')->middleware('checkRole:admin');
+        Route::delete("/delete/{id}", [PasienController::class, 'delete'])->name('delete')->middleware('checkRole:admin');
     });
 });
