@@ -4,7 +4,7 @@
 <div class="card text-left">
     <div class="card-body">
         <h4 class="card-title">Form Tambah Rekam Pasien</h4>
-        <a href="" class="btn btn-outline-primary btn-sm">Kembali</a>
+        <a href="{{route('rekammedis.index')}}" class="btn btn-outline-primary btn-sm">Kembali</a>
         <form method="POST" action="{{route('rekammedis.simpan')}}">
             @csrf
             <div class="form-group my-4">

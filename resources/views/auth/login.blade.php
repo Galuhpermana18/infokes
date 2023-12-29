@@ -148,11 +148,11 @@
                                             </b>
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-success btn-user btn-block">
+                                        {{-- <a href="index.html" class="btn btn-success btn-user btn-block">
                                             <b>
                                                 Daftar Sebagai Pasien Baru
                                             </b>
-                                        </a>
+                                        </a> --}}
                                     </form>
                                     <hr>
                                     {{-- <div class="text-center">
