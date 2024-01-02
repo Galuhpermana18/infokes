@@ -5,7 +5,9 @@
       <div class="card-body">
         {{-- {{ $ruangan }} --}}
         <h4 class="card-title">Data Ruangan</h4>
+        @if (auth()->user()->role == 'admin')
         <a href="{{ route('ruangan.tambah') }}" class="btn btn-primary">[+] Tambah Ruangan</a>
+        @endif
         <div class="table-responsive">
             <table class="table">
                 <thead>

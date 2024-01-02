@@ -4,8 +4,7 @@
 <div class="card text-left">
     <div class="card-body">
         <h4 class="card-title">Data Dokter</h4>
-        @if (auth()->user()->role == 'admin')
-            
+        @if (auth()->user()->role == 'admin')            
         <a href="{{ route('dokter.tambah') }}" class="btn btn-primary">[+] Tambah Dokter</a>
         @endif
         <div class="table-responsive">
